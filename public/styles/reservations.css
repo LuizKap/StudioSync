@@ -1,0 +1,127 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+#div-titulo {
+    text-align: center;
+    margin: 60px 0;
+}
+
+#div-titulo h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#div-titulo strong {
+    color: #a855f7;
+}
+
+#div-titulo p {
+    margin-top: 12px;
+    color: #b3b3b3;
+    font-size: 1.1rem;
+}
+
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 60px;
+}
+
+.ul-cards {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(300px, 1fr)
+    );
+    gap: 25px;
+}
+
+.li-card {
+    background-color: #1b1b1b;
+    border: 1px solid #2e2e2e;
+    border-radius: 16px;
+    padding: 25px;
+    transition: 0.2s;
+}
+
+.li-card:hover {
+    transform: translateY(-5px);
+    border-color: #a855f7;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h2 {
+    font-size: 1.4rem;
+}
+
+.status {
+    color: white;
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+.pendente{
+    background-color: #284e94;
+}
+.confirmado{
+    background-color: #208831;
+}
+.cancelado{
+    background-color: #aa2715;
+}
+
+.card-info {
+    margin-top: 20px;
+    color: #cfcfcf;
+}
+
+.card-info p {
+    margin-bottom: 12px;
+}
+
+.total {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: #a855f7;
+    font-weight: bold;
+}
+
+.empty-state {
+    background-color: #1b1b1b;
+    border: 1px solid #2e2e2e;
+    border-radius: 20px;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state h2 {
+    font-size: 2rem;
+}
+
+.empty-state p {
+    margin: 15px 0 30px;
+    color: #b3b3b3;
+}
+
+.empty-state a {
+    background-color: #862ac457;
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.empty-state a:hover {
+    background-color: #9333ea;
+}

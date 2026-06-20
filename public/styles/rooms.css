@@ -1,0 +1,221 @@
+
+
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+
+    position: fixed;
+    inset: 0;
+
+    background-image: url(/assets/images/globalBackground.png);
+    background-size: cover;
+    background-position: center;
+
+    filter: brightness(40%);
+    z-index: -1;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Orbitron", sans-serif
+}
+
+p,
+li {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+h1>strong {
+    color: #992ee0f1;
+}
+
+.li-cards:nth-child(odd) {
+    border-color: #2b053d;
+}
+
+.li-cards:nth-child(even) {
+    border-color: #a855f7;
+}
+
+#div-titulo {
+    display: grid;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+#div-titulo>p {
+    font-size: 1.5rem;
+}
+
+#ul-cards {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.li-cards {
+    background: #161622eb;
+    border: 1px solid;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 20px #00000080,
+        0 0 12px #862ac426;
+
+    padding: 1rem;
+    gap: 1.5rem;
+
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    grid-template-areas:
+        'img titulo'
+        'img descricao'
+        'img equipamentos'
+        'footer footer'
+        'reservar reservar';
+    color: #ffffff;
+}
+
+.room-img {
+    width: 15rem;
+    height: 19rem;
+    border-radius: 10px;
+    object-fit: cover;
+    grid-area: img;
+}
+
+.logo-tipo {
+    display: flex;
+    align-items: center;
+}
+
+.sub_title {
+    color: #9737d8f1;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.room-nome {
+    margin-bottom: 10px;
+}
+
+.room-logo {
+    margin-right: 10px;
+    width: 1.5rem;
+    object-fit: contain;
+}
+
+.ul-equipamentos {
+    padding-left: 15px;
+}
+
+.room-footer {
+    grid-area: footer;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 5rem;
+
+
+    background: #09090eeb;
+    border-top: 1px solid #a3a2a285;
+    border-radius: 5px;
+}
+
+.div-capacidade {
+    display: grid;
+    grid-template-areas:
+        'img capacidade'
+        'img pessoas';
+
+    gap: .5rem;
+}
+
+.capacidade-img {
+    grid-area: img;
+
+    border-radius: 10px;
+    width: 3rem;
+    height: 3rem;
+    object-fit: contain;
+    padding: 10px;
+    background: #050505cc;
+}
+
+.div-precoHora {
+    display: grid;
+    gap: .7rem;
+    color: #a855f7;
+}
+
+#card-reservar {
+    background: #0a0a0ceb;
+    border: 1px solid;
+    border-radius: 12px;
+    box-shadow:
+        0 4px 20px #00000080,
+        0 0 12px #862ac426;
+
+    padding: 1rem;
+    gap: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#card-reservar>h6 {
+    font-size: 1.4rem;
+    color: #9246da;
+}
+
+#card-reservar>img {
+    width: 5rem;
+
+    object-fit: contain;
+    background: #8a16c03a;
+    border-radius: 30px;
+    padding: 15px;
+}
+
+#card-reservar>p {
+    font-size: 1.3rem;
+    color: white;
+    width: 50%;
+    text-align: center;
+}
+
+.div-btn-reservar {
+    grid-area: reservar;
+    justify-self: center;
+}
+
+.btn-reservar {
+    background: #692ca1;
+    text-decoration: none;
+    color: #f0edf3;
+    padding: 12px 16px;
+    border-radius: 10px;
+}
+
+.btn-reservar:hover {
+    box-shadow:
+        0 4px 20px #00000080,
+        0 0 12px #862ac426;
+
+    background-color: #2b053d;
+    transition: .7s;
+}

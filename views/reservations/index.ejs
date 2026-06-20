@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/partials/header.css">
+    <link rel="stylesheet" href="/styles/reservations.css">
+    <title>Minhas Reservas - StudioSync</title>
+</head>
+
+<body>
+    <%- include('../partials/header')%>
+
+        <div id="div-titulo">
+            <h1>Minhas <strong>Reservas</strong></h1>
+            <p>Veja e gerencie todas suas reservas de estúdio</p>
+        </div>
+
+        <main>
+
+            <% if (reservations.length> 0) { %>
+
+                <ul class="ul-cards">
+                    <% reservations.forEach(reservation=> { %>
+
+                        <li class="li-card">
+
+                            <div class="card-header">
+                                <h2>
+                                    <%= reservation.salaNome %>
+                                </h2>
+
+                                <span class="status <%= reservation.status %>">
+                                    <%=reservation.status%>
+                                </span>
+                            </div>
+
+                            <div class="card-info">
+                                <p>📅 <%= reservation.data %>
+                                </p>
+
+                                <p>
+                                    🕒 <%= reservation.horaInicio %> -
+                                        <%= reservation.horaFim %>
+                                </p>
+                            </div>
+
+                            <p class="total">
+                                Total: R$ <%= reservation.total %>
+                            </p>
+
+                        </li>
+
+                        <% }) %>
+                </ul>
+
+                <% } else { %>
+
+                    <div class="empty-state">
+
+                        <h2>Nenhuma reserva encontrada</h2>
+
+                        <p>
+                            Que tal agendar seu primeiro horário?
+                        </p>
+
+                        <a href="/rooms">
+                            Reservar agora
+                        </a>
+
+                    </div>
+
+                    <% } %>
+
+        </main>
+</body>
+
+</html>

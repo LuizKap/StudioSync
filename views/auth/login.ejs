@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="icon" href="/assets/images/guitarra.png" type="image/png">
+    <title>Login - StudioSync</title>
+</head>
+
+<body>
+
+    <img src="/assets/images/StudioSyncLogin.png" alt="Studio">
+
+    <section>
+        <form action="/auth/login" method="POST">
+
+            <div class="div_titulo">
+                <div class="img-h1">
+                    <img src="/assets/images/notaMusical.png" alt="">
+                    <h1>Studio<strong>Sync</strong></h1>
+                </div>
+
+                <h2>Bem-vindo de volta</h2>
+                <p>Entre na sua conta para acessar suas reservas</p>
+            </div>
+
+            <div class="div_dados">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" autocomplete="email" class="input"
+                    placeholder="Digite seu email">
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" autocomplete="current-password" class="input"
+                    placeholder="Digite sua senha">
+
+            </div>
+
+            <div class="div_login">
+                <button type="submit" id="entrar">
+                    Entrar
+                </button>
+
+                <p>
+                    Ainda não possui uma conta?
+                    <a href="/auth/register" class="fazer_login">
+                        Criar Conta
+                    </a>
+                </p>
+            </div>
+
+        </form>
+    </section>
+
+</body>
+
+</html>

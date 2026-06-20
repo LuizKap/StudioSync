@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="icon" href="/assets/images/guitarra.png" type="image/png">
+    <title>Registrar - StudioSync</title>
+</head>
+
+<body>
+
+    <img src="/assets/images/StudioSyncLogin.png" alt="">
+
+    <section>
+        <form action="/auth/register" method="POST">
+            <div class="div_titulo">
+                <div class="img-h1">
+                    <img src="/assets/images/notaMusical.png" alt="">
+                    <h1>Studio<strong>Sync</strong></h1>
+                </div>
+
+                <h2>Crie Sua conta</h2>
+                <p>Preencha os dados abaixo para se cadastrar</p>
+            </div>
+
+            <div class="div_dados">
+                <label for="nome_completo">Nome Completo</label>
+                <input type="text" name="nome" id="nome_completo" class="input" placeholder="Digite seu Nome Completo">
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" autocomplete="email" class="input"
+                    placeholder="Digite seu email">
+
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha" autocomplete="new-password" class="input"
+                    placeholder="Digite sua senha">
+
+                <label for="confirmar_senha">Confirmar Senha</label>
+                <input type="password" name="confirmar_senha" id="confirmar_senha" autocomplete="new-password"
+                    class="input" placeholder="Digite novamente sua senha">
+
+            </div>
+
+
+
+            <div class="div_login">
+                <button type="submit" id="criar_conta">Criar Conta</button>
+
+                <p>Já possui uma conta? <a href="/auth/login" class="fazer_login">Fazer Login</a></p>
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

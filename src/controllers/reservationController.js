@@ -1,0 +1,78 @@
+import { v4 as uuidv4 } from 'uuid'
+import { reservationModel } from '../models/reservationModel.js'
+import { roomsModel } from '../models/roomModel.js'
+import { horarios } from '../utils/availableTimes.js'
+import { calculatePrice } from '../utils/calculatePrice.js'
+import { validateDate, validateTime } from '../utils/validateTime.js'
+import dayjs from '../utils/dayjs.js'
+
+
+
+const reservationController = {
+
+    getAll: (req, res) => {
+        const user = req.user
+        const reservations = reservationModel.getAllByUserId(user.id)
+
+        res.render('reservations', {
+            reservations,
+            user
+        })
+    },
+
+    create: (req, res) => {
+        const user = req.user
+        const { roomId } = req.params
+        const room = roomsModel.getById(roomId)
+        if (!room) return res.status(404).send('Sala Não encontrada')
+
+        res.render('reservations/create', {
+            room,
+            user
+        })
+    },
+
+    storeReservation: (req, res) => {
+        const user = req.user
+        const { roomId } = req.params
+        const { date, horaInicio, horaFim } = req.body
+
+        const room = roomsModel.getById(roomId)
+        if (!room) return res.status(404).send('sala não encontrada')
+        if (!date || !horaInicio || !horaFim) return res.status(400).send('Todos os campos são obrigatórios')
+
+
+        const roomReservations = reservationModel.getAllByRoomId(roomId).filter(reservation => reservation.data === date)
+        const dayjsI = dayjs(horaInicio, 'HH:mm')
+        const dayjsF = dayjs(horaFim, 'HH:mm')
+
+
+        const conflicted = validateTime(dayjsI, dayjsF, roomReservations, horaInicio, horaFim) || validateDate(date, horaInicio)
+        if (conflicted) return res.status(400).send('Horários ou datas Inválido(a)s')
+
+
+        const total = calculatePrice(horaInicio, horaFim, room.precoHora)
+        reservationModel.storeReservation({
+            reservationId: uuidv4(),
+            userId: user.id,
+            roomId: roomId,
+            salaNome: room.nome,
+            data: date,
+            horaInicio: horaInicio,
+            horaFim: horaFim,
+            status: 'pendente',
+            total: total
+        })
+        res.redirect('/reservations')
+    },
+
+    delete: (req, res) => {
+        const { reservationId } = req.params
+        reservationModel.delete(reservationId)
+
+        res.redirect('/reservations')
+    }
+
+}
+
+export { reservationController }

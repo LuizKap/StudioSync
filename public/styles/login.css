@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+body {
+  display: flex;
+  background: #0b0714;
+  height: 100vh;
+  width: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+body > img {
+  width: 45%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+section {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: black 0px 0px 100px 55px;
+}
+
+form {
+  background-color: #161622d8;
+  width: 80%;
+  min-height: 70%;
+
+  border-radius: 10px;
+  box-shadow: #f5f5f593 0px 0px 3px;
+
+  display: grid;
+  gap: 2rem;
+
+  padding: 2rem 0;
+}
+
+.input {
+  border-radius: 10px;
+  border: solid 1px #ffffff5d;
+  background-color: #161622d8;
+  width: 80%;
+  padding: 10px 8px;
+  color: #f7f9fa;
+}
+
+.input::placeholder {
+  color: #f7f9fa80;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #a855f7;
+}
+
+.div_titulo {
+  display: grid;
+  justify-items: center;
+  color: #f7f9faee;
+}
+
+.img-h1 {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 1rem;
+}
+
+.img-h1 img {
+  width: 50px;
+  height: 45px;
+  background-color: #7c4da870;
+  border-radius: 15px;
+  padding: 10px;
+  object-fit: contain;
+}
+
+h1,
+h2 {
+  font-size: 2rem;
+  font-family: "Orbitron", sans-serif;
+}
+
+h1 strong {
+  color: #992ee0f1;
+}
+
+.div_titulo p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.div_dados {
+  display: grid;
+  justify-items: center;
+  gap: .5rem;
+  color: #f7f9fad2;
+}
+
+.div_dados label {
+  width: 80%;
+  font-size: .9rem;
+}
+
+#entrar {
+  background-color: #692ca1;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  font-size: .9rem;
+  width: 80%;
+  padding: 12px 0;
+
+  color: #f7f9fa;
+  font-weight: 600;
+}
+
+#entrar:hover {
+  background-color: #7d3fc0;
+  transition: .3s;
+}
+
+.div_login {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+
+.div_login p {
+  color: #f7f9fab2;
+}
+
+.fazer_login {
+  color: #a855f7;
+  text-decoration: none;
+}
+
+.fazer_login:hover {
+  text-decoration: underline;
+}

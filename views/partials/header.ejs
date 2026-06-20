@@ -1,0 +1,24 @@
+<header>
+    <img src="/assets/images/StudioSync.png" alt="imagem logo do site" id="logo-studioSync">
+    <nav id="header-nav">
+        <div>
+            <a href="/" class="header-nav-links">Inicio</a>
+            <a href="/rooms" class="header-nav-links">Salas</a>
+            <a href="/reservations" class="header-nav-links">Minhas Reservas</a>
+        </div>
+
+        <% if (user) { %>
+            <div id="div_usuario">
+                <img src="/assets/images/pessoa.png" alt="pessoa" id="pessoa_img">
+                <p id="usuario_nome">
+                    <%= user.nome %>
+                </p>
+            </div>
+            <a href="" id="sair">Sair</a>
+
+            <% } else { %>
+                <a href="/auth/register" id="login">Login</a>
+                <% } %>
+
+    </nav>
+</header>

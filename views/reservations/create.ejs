@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/partials/header.css">
+    <link rel="stylesheet" href="/styles/create.css">
+    <link rel="icon" href="/assets/images/notaMusical.png" type="image/png">
+
+    <title>Nova Reserva - StudioSync</title>
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div id="div-titulo">
+            <h1>NOVA <strong>RESERVA</strong></h1>
+            <p>Configure os detalhes da sua sessão</p>
+        </div>
+
+        <main id="reservation-container">
+
+            <section class="room-card" data-price='<%= room.precoHora  %>' data-room-id='<%= room.id  %>'>
+
+                <img src="<%= room.img %>" alt="<%= room.nome %>" class="room-img">
+
+                <h2>
+                    <%= room.nome %>
+                </h2>
+
+                <div class="logo-tipo">
+                    <img src="<%= room.logo %>" alt="">
+                    <p>
+                        <%= room.tipo %>
+                    </p>
+                </div>
+
+                <p>
+                    <%= room.descricao %>
+                </p>
+
+                <div class="info-box">
+                    <span>Capacidade:</span>
+                    <strong>
+                        <%= room.capacidade %> pessoas
+                    </strong>
+                </div>
+
+                <div class="info-box">
+                    <span>Preço:</span>
+                    <strong>R$ <%= room.precoHora %>/hora</strong>
+                </div>
+
+            </section>
+
+            <section class="reservation-form">
+
+                <h2 id="detalhes">Detalhes da Reserva</h2>
+
+                <form action="/reservations/<%= room.id %>" method="POST">
+
+                    <label for="date" id="label-date">
+                        Data
+                    </label>
+
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="start-time" id="label-start">
+                        Horário Inicial
+                    </label>
+
+                    <select name="horaInicio" id="start-time">
+                        <option value="">Escolha uma data primeiro</option>
+                    </select>
+
+                    <label for="end-time" id="label-end">
+                        Horário Final
+                    </label>
+
+                    <select name="horaFim" id="end-time">
+                        <option value="">Escolha uma data primeiro</option>
+                    </select>
+
+                    <p class="preco-final"> </p>
+
+                    <button type="submit" id="submit">
+                        CONFIRMAR RESERVA
+                    </button>
+
+                </form>
+
+            </section>
+
+        </main>
+
+        <%- include('../partials/scripts') %>
+</body>
+
+</html>

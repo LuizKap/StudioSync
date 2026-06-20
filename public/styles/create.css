@@ -1,0 +1,149 @@
+body {
+    width: 100%;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+
+    position: fixed;
+    inset: 0;
+
+    background-image: url(/assets/images/globalBackground.png);
+    background-size: cover;
+    background-position: center;
+
+    filter: brightness(40%);
+    z-index: -1;
+}
+
+h1,
+h2 {
+    font-family: "Orbitron", sans-serif
+}
+
+p,
+#submit {
+    font-family: "Inter", sans-serif;
+}
+
+#reservation-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+#div-titulo {
+    display: grid;
+    justify-items: center;
+}
+
+#div-titulo>h1 {
+    color: white;
+    font-size: 3rem;
+}
+
+#div-titulo strong {
+    color: #992ee0f1;
+}
+
+#div-titulo p {
+    color: white;
+    font-size: 1.1rem;
+}
+
+.room-card {
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    color: white;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.room-card h2 {
+    font-size: 2rem;
+    color: #9850b9;
+}
+
+.room-card p,
+.room-card span,
+.room-card strong {
+    font-size: 1.3rem;
+}
+
+.room-img {
+    width: 28rem;
+    height: 20rem;
+    object-fit: cover;
+    object-position: center bottom;
+    border-radius: 15px;
+}
+
+.logo-tipo {
+    display: flex;
+    gap: .5rem;
+}
+
+.reservation-form form {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+}
+
+#label-start,
+#label-end,
+#label-date {
+    color: white;
+    font-size: 1.2rem;
+}
+
+#start-time,
+#end-time,
+#date {
+    background-color: #0202025b;
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    border-color: #9850b9;
+}
+
+#date::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+#detalhes {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #992ee0f1;
+}
+
+.preco-final {
+    color: #ffffff;
+}
+
+#submit {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #862ac457;
+    color: white;
+    cursor: pointer;
+    border: black solid 2px;
+    margin-top: 10px;
+}
+
+#submit:disabled {
+    background-color: gray;
+    cursor: default;
+}
+
+#submit:not(:disabled):hover {
+    box-shadow:
+        0 4px 20px #00000080,
+        0 0 12px #862ac426;
+
+    background-color: #9850b9;
+    transition: .7s;
+}

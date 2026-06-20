@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap');
+
+body {
+  display: flex;
+  background: #0b0714;
+  height: 100vh;
+  width: 100%;
+  
+  font-family: "Inter", sans-serif;
+
+}
+
+body > img {
+  width: 45%;
+  height: 100vh;
+  object-fit: cover;
+} 
+
+section {
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: black 0px 0px 100px 55px;
+}
+
+form {
+  background-color: #161622d8;
+  width: 80%;
+  height: 95%;
+
+  border-radius: 10px;
+  box-shadow: #f5f5f593 0px 0px 3px;
+
+  display: grid;
+  gap: 1rem;
+
+  padding-top: 15px;
+}
+
+.input {
+  border-radius: 10px;
+  border: solid 1px #ffffff5d;
+  background-color: #161622d8;
+  width: 85%;
+  padding: 10px 8px;
+  color: white;
+}
+.input:focus {
+  outline: none;
+  border-color: #a855f7;
+  box-shadow: 0 0 8px #a855f780;
+}
+.div_titulo {
+  display: grid;
+  justify-items: center;
+  color: #f7f9faee;
+}
+
+.img-h1 img {
+  width: 50px;
+  height: 45px;
+  background-color: #7c4da870;
+  border-radius: 15px;
+  padding: 10px;
+  object-fit: contain;
+}
+
+.img-h1 {
+  display: flex;
+  gap: .5rem;
+  margin-bottom: 5px;
+}
+
+h1,h2 {
+  font-size: 2rem;
+  font-family: "Orbitron", sans-serif
+}
+h2{
+  font-size: 1.8rem;
+}
+
+h1>strong {
+  color: #992ee0f1;
+}
+
+.div_titulo p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.div_dados {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  color: #f7f9fad2;
+  gap: .5rem;
+}
+
+.div_dados label {
+  width: 85%;
+  font-size: .9rem;
+  
+}
+
+.div_dados img {
+  width: 32px;
+  height: 20px;
+  object-fit: contain;
+}
+
+#criar_conta {
+  background-color: #692ca1;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  font-size: .9rem;
+  width: 80%;
+  padding: 8px 0;
+ 
+  color: #f7f9fa;
+  font-weight: 600;
+}
+#criar_conta:hover {
+  background: #7d3fc0;
+  transition: .3s;
+}
+
+.div_login {
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+}
+.div_login p{
+  color: #f7f9fab2;
+}
+.fazer_login {
+  color: #a855f7;
+  text-decoration: none;
+}
+
+.fazer_login:hover {
+  text-decoration: underline;
+}

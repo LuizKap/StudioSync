@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salas - StudioSync</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/partials/header.css">
+    <link rel="stylesheet" href="/styles/rooms.css">
+    <link rel="icon" href="/assets/images/notaMusical.png" type="image/png">
+</head>
+
+<body>
+    <%- include('../partials/header') %>
+
+        <div id="div-titulo">
+            <h1>NOSSAS<strong> SALAS</strong></h1>
+            <p>Ambientes preparados para elevar sua música ao próximo nível</p>
+        </div>
+
+        <main>
+
+            <ul id="ul-cards">
+                <% rooms.forEach(room=> { %>
+
+                    <li class="li-cards" id="room-<%=room.id %>">
+
+                        <img src="<%=room.img %>" alt="" class="room-img">
+
+                        <div class="div-header">
+                            <h2 class="room-nome">
+                                <%= room.nome %>
+                            </h2>
+                            <div class="logo-tipo">
+                                <img src="<%= room.logo %>" alt="<%= room.nome %>" class="room-logo">
+                                <h3 class="room-tipo">
+                                    <%= room.tipo %>
+                                </h3>
+                            </div>
+                        </div>
+
+                        <div class="div-descricao">
+                            <h4 class="sub_title">DESCRIÇÃO</h4>
+                            <p>
+                                <%= room.descricao %>
+                            </p>
+                        </div>
+
+                        <div class="div-equipamentos">
+                            <h5 class="sub_title">EQUIPAMENTOS</h5>
+                            <ul class="ul-equipamentos">
+                                <% room.equipamentos.forEach(equipamento=> { %>
+                                    <li class="li-equipamento">
+                                        <%= equipamento %>
+                                    </li>
+                                    <% }) %>
+                            </ul>
+                        </div>
+
+                        <div class="room-footer">
+                            <div class="div-capacidade">
+                                <img src="/assets/images/capacidade.png" alt="capacidade imagem" class="capacidade-img">
+                                <p class="p-capacidade">CAPACIDADE</p>
+                                <p>
+                                    <%=room.capacidade %> PESSOAS
+                                </p>
+                            </div>
+                            <div class="div-precoHora">
+                                <p>PREÇO/HORA</p>
+                                <p>R$ <%=room.precoHora %>,00
+                                </p>
+                            </div>
+                        </div>
+                        <div class="div-btn-reservar">
+                            <a href="/reservations/create/<%=room.id%>" class="btn-reservar">RESERVAR</a>
+                        </div>
+                    </li>
+                    <% }); %>
+                    <li id="card-reservar">
+                        <img src="/assets/images/agenda.png" alt="agenda">
+                        <h6>PRONTO PARA RESERVAR?</h6>
+                        <p>Escolha sua sala favorita e faça sua reserva de forma rápida e segura</p>
+                        
+                    </li>
+            </ul>
+
+        </main>
+</body>
+
+</html>
