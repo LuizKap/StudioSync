@@ -17,7 +17,7 @@ const userModel = {
         const user = { id: uuidv4(), nome: nome, email: email, senha: senha }
         users.push(user)
         return user
-    },
+    }
 
 }
 

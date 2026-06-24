@@ -2,7 +2,7 @@ let reservations = []
 
 const reservationModel = {
 
-    getReservationById: (reservationId) => reservations.find(reservation => reservation.id === reservationId),
+    getReservationById: (reservationId) => reservations.find(reservation => reservation.reservationId === reservationId),
 
     getAll: () => reservations,
 
@@ -16,7 +16,7 @@ const reservationModel = {
     },
 
     delete: (reservationId) => {
-        const filterReservations = reservations.filter(reservation => reservation.id !== reservationId)
+        const filterReservations = reservations.filter(reservation => reservation.reservationId !== reservationId)
         reservations = filterReservations
     }
 

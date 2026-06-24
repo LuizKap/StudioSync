@@ -13,6 +13,9 @@ export function loadUserMid(req, res, next) {
         const { userId } = jwt.verify(token, process.env.JWT_SECRET)
         const user = userModel.getById(userId) || null
         req.user = user
-        next()
-    } catch { req.user = null }
+        return next()
+    } catch {
+        req.user = null
+        return next()
+    }
 }

@@ -1,28 +1,28 @@
 import dayjs from '../utils/dayjs.js'
 import { horarios } from './availableTimes.js'
 
-export function validateTime(dayjsI, dayjsF, roomReservations, horaInicio, horaFim) {
+export function validateTime(dayjsI, dayjsF, roomReservations) {
 
-    const conflictedTime = 
-        roomReservations.some(reservation => {
-            const inicioReserva = dayjs(reservation.horaInicio, 'HH:mm')
-            const fimReserva = dayjs(reservation.horaFim, 'HH:mm')
+    const invalidOrder = dayjsI.isSameOrAfter(dayjsF)
 
-            return dayjsF.isAfter(inicioReserva) && dayjsI.isBefore(fimReserva)
-        }) ||
-        dayjsI.isSameOrAfter(dayjsF) ||
-        !horarios.some(horario => horario.hora === horaInicio) ||
-        !horarios.some(horario => horario.hora === horaFim)
+    const invalidSlot = !horarios.some(h => h.hora === dayjsI.format('HH:mm')) || !horarios.some(h => h.hora === dayjsF.format('HH:mm'))
 
-    return conflictedTime
+    const hasConflict = roomReservations.some(reservation => {
+        const inicioReserva = dayjs(reservation.horaInicio, 'HH:mm')
+        const fimReserva = dayjs(reservation.horaFim, 'HH:mm')
+
+        return dayjsI.isBefore(fimReserva) && dayjsF.isAfter(inicioReserva)
+    })
+
+    return invalidOrder || invalidSlot || hasConflict
 }
-export function validateDate(date, horaInicio) {
-    const today = dayjs()
 
-    const invalidDate = dayjs(
+export function validateDate(date, horaInicio) {
+
+    const reservationDateTime = dayjs(
         `${date} ${horaInicio}`,
         'YYYY-MM-DD HH:mm'
-    ).isSameOrBefore(today)
+    )
 
-    return invalidDate
+    return reservationDateTime.isBefore(dayjs())
 }

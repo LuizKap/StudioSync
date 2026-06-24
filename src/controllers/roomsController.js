@@ -14,7 +14,7 @@ const roomsController = {
     },
 
     getById: (req, res) => {
-        const { roomId, userId } = req.params
+        const { roomId } = req.params
 
         const room = roomsModel.getById(roomId)
         if (!room) return res.status(404).send('Não encontrado')
@@ -24,6 +24,8 @@ const roomsController = {
     availability: (req, res) => {
         const { roomId } = req.params
         const { date } = req.query
+
+        if (!date) return res.status(400).send('Data não informada')
 
         const reservations = reservationModel.getAll()
 
