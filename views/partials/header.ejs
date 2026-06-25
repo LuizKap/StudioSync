@@ -14,7 +14,12 @@
                     <%= user.nome %>
                 </p>
             </div>
-            <a href="" id="sair">Sair</a>
+            
+            <form action="/auth/logout" method="POST">
+                <button type="submit" id="logout">
+                    Sair
+                </button>
+            </form>
 
             <% } else { %>
                 <a href="/auth/register" id="login">Login</a>

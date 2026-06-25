@@ -14,7 +14,10 @@ const authController = {
         const user = userModel.create(nome, email, cryptSenha)
 
         const token = createAuthToken(user.id)
-        res.cookie('token', token, { httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000 })
+        res.cookie('token', token, {
+            httpOnly: true,
+            maxAge: 30 * 24 * 60 * 60 * 1000
+        })
         return res.redirect('/')
     },
 
@@ -30,6 +33,11 @@ const authController = {
 
         const token = createAuthToken(user.id)
         res.cookie('token', token, { httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000 })
+        return res.redirect('/')
+    },
+
+    logout: (req, res) => {
+        res.clearCookie('token')
         return res.redirect('/')
     }
 }

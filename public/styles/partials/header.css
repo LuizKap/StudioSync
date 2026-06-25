@@ -84,19 +84,20 @@ header {
 }
 
 #login,
-#sair {
+#logout {
     text-decoration: none;
     color: #c084fc;
+    background: #ffffff0f;
 
     border: 1px solid #9333ea;
     padding: .5rem 1rem;
     border-radius: 999px;
-
+    cursor: pointer;
     transition: .3s;
 }
 
 #login:hover,
-#sair:hover {
+#logout:hover {
     background: #9333ea;
     color: white;
     box-shadow: 0 0 15px #9333ea80;
