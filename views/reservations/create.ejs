@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/styles/partials/header.css">
     <link rel="stylesheet" href="/styles/create.css">
     <link rel="icon" href="/assets/images/notaMusical.png" type="image/png">
-
     <title>Nova Reserva - StudioSync</title>
 </head>
 
@@ -37,7 +36,7 @@
                     </p>
                 </div>
 
-                <p>
+                <p class="room-description">
                     <%= room.descricao %>
                 </p>
 
@@ -57,9 +56,9 @@
 
             <section class="reservation-form">
 
-                <h2 id="detalhes">Detalhes da Reserva</h2>
-
                 <form action="/reservations/<%= room.id %>" method="POST">
+
+                    <h2 id="detalhes">Detalhes da Reserva</h2>
 
                     <label for="date" id="label-date">
                         Data
@@ -84,6 +83,9 @@
                     </select>
 
                     <p class="preco-final"> </p>
+                    <div role="alert" aria-live="assertive" id="alert-message">
+                        Você precisa reservar com pelo menos 30 minutos de antecedência do horário escolhido
+                    </div>
 
                     <button type="submit" id="submit">
                         CONFIRMAR RESERVA
@@ -95,7 +97,7 @@
 
         </main>
 
-        <%- include('../partials/scripts') %>
+        <%- include('../partials/handleDateTimeScript') %>
 </body>
 
 </html>

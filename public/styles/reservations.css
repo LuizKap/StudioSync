@@ -125,3 +125,48 @@ main {
 .empty-state a:hover {
     background-color: #9333ea;
 }
+
+.pay-btn {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+
+    background: #692ca1;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.pay-btn:hover {
+    background: #9333ea;
+    box-shadow: 0 0 12px #9333ea60;
+}
+
+.payment-timer {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+    width: 50%;
+    justify-self: center;
+    justify-content: center;
+
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    background-color: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+
+    color: #d8b4fe;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.countdown {
+    font-family: monospace;
+    font-size: 1rem;
+    color: #ffffff;
+}

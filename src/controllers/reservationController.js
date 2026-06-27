@@ -53,23 +53,18 @@ const reservationController = {
 
         const total = calculatePrice(horaInicio, horaFim, room.precoHora)
         reservationModel.storeReservation({
-            reservationId: uuidv4(),
+            id: uuidv4(),
             userId: user.id,
             roomId: roomId,
             salaNome: room.nome,
             data: date,
+            createdAt: dayjs().toDate(),
+            expiresAt: dayjs().add(10, 'minute').toDate(),
             horaInicio: horaInicio,
             horaFim: horaFim,
-            status: 'pendente',
+            status: 'pagamento pendente',
             total: total
         })
-        res.redirect('/reservations')
-    },
-
-    delete: (req, res) => {
-        const { reservationId } = req.params
-        reservationModel.delete(reservationId)
-
         res.redirect('/reservations')
     }
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pagamento Confirmado - StudioSync</title>
+
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/partials/header.css">
+    <link rel="stylesheet" href="/styles/payment-success.css">
+
+    <link rel="icon" href="/assets/images/notaMusical.png" type="image/png">
+</head>
+
+<body>
+
+    <%- include('../partials/header') %>
+
+    <main class="success-container">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>Pagamento <strong>Confirmado</strong></h1>
+
+            <p>
+                Sua reserva foi realizada com sucesso.
+            </p>
+
+            <p class="subtitle">
+                Agora é só comparecer no horário agendado e aproveitar sua sessão.
+            </p>
+
+            <div class="buttons">
+                <a href="/reservations" class="primary-btn">
+                    Minhas Reservas
+                </a>
+
+                <a href="/rooms" class="secondary-btn">
+                    Reservar Outra Sala
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

@@ -5,16 +5,16 @@ body {
   background: #0b0714;
   height: 100vh;
   width: 100%;
-  
+
   font-family: "Inter", sans-serif;
 
 }
 
-body > img {
+body>img {
   width: 45%;
   height: 100vh;
   object-fit: cover;
-} 
+}
 
 section {
   width: 55%;
@@ -39,18 +39,22 @@ form {
 }
 
 .input {
-  border-radius: 10px;
-  border: solid 1px #ffffff5d;
-  background-color: #161622d8;
   width: 85%;
-  padding: 10px 8px;
-  color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #2e2e2e;
+  background: #1b1b1b;
+  color: #fff;
+  outline: none;
+  transition: 0.2s;
 }
+
 .input:focus {
   outline: none;
   border-color: #a855f7;
   box-shadow: 0 0 8px #a855f780;
 }
+
 .div_titulo {
   display: grid;
   justify-items: center;
@@ -72,11 +76,13 @@ form {
   margin-bottom: 5px;
 }
 
-h1,h2 {
+h1,
+h2 {
   font-size: 2rem;
   font-family: "Orbitron", sans-serif
 }
-h2{
+
+h2 {
   font-size: 1.8rem;
 }
 
@@ -100,7 +106,7 @@ h1>strong {
 .div_dados label {
   width: 85%;
   font-size: .9rem;
-  
+
 }
 
 .div_dados img {
@@ -118,10 +124,11 @@ h1>strong {
   font-size: .9rem;
   width: 80%;
   padding: 8px 0;
- 
+
   color: #f7f9fa;
   font-weight: 600;
 }
+
 #criar_conta:hover {
   background: #7d3fc0;
   transition: .3s;
@@ -132,9 +139,11 @@ h1>strong {
   justify-items: center;
   gap: 1rem;
 }
-.div_login p{
+
+.div_login p {
   color: #f7f9fab2;
 }
+
 .fazer_login {
   color: #a855f7;
   text-decoration: none;
@@ -142,4 +151,20 @@ h1>strong {
 
 .fazer_login:hover {
   text-decoration: underline;
+}
+
+.input.valid {
+  border-color: #22c55e;
+}
+
+
+.input.invalid {
+  border-color: #ef4444;
+}
+
+.error-msg {
+  font-size: 0.85rem;
+  color: #ef4444;
+  margin-top: -2px;
+  margin-bottom: 10px;
 }

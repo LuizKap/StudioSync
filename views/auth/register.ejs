@@ -33,14 +33,17 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" autocomplete="email" class="input"
                     placeholder="Digite seu email">
+                <div id="email-error" class="error-msg"></div>
 
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" id="senha" autocomplete="new-password" class="input"
                     placeholder="Digite sua senha">
+                <div id="senha-error" class="error-msg"></div>
 
                 <label for="confirmar_senha">Confirmar Senha</label>
                 <input type="password" name="confirmar_senha" id="confirmar_senha" autocomplete="new-password"
                     class="input" placeholder="Digite novamente sua senha">
+                <div id="confirmar-error" class="error-msg"></div>
 
             </div>
 
@@ -53,6 +56,8 @@
             </div>
         </form>
     </section>
+
+    <%-include('../partials/emailPassValid') %>
 </body>
 
 </html>

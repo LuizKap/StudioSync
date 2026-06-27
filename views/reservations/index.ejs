@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/partials/header.css">
     <link rel="stylesheet" href="/styles/reservations.css">
+
     <title>Minhas Reservas - StudioSync</title>
 </head>
 
@@ -50,6 +51,20 @@
                             <p class="total">
                                 Total: R$ <%= reservation.total %>
                             </p>
+                            <% if (reservation.status==='pagamento pendente' ) { %>
+                                
+                                <form action="/payment/checkout/<%= reservation.id%>" method="POST">
+                                    <button type="submit" class="pay-btn">
+                                        Pagar reserva
+                                    </button>
+                                </form>
+
+
+                                <p class="payment-timer">
+                                    ⏳ <span class="countdown" data-expires="<%= reservation.expiresAt %>">
+                                    </span>
+                                </p>
+                                <% } %>
 
                         </li>
 
@@ -75,6 +90,8 @@
                     <% } %>
 
         </main>
+
+        <%- include('../partials/expiresAtCountdownScript') %>
 </body>
 
 </html>

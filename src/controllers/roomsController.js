@@ -13,14 +13,6 @@ const roomsController = {
         else res.render('rooms', { rooms, user })
     },
 
-    getById: (req, res) => {
-        const { roomId } = req.params
-
-        const room = roomsModel.getById(roomId)
-        if (!room) return res.status(404).send('Não encontrado')
-        else res.render('reservations/create', { room })
-    },
-
     availability: (req, res) => {
         const { roomId } = req.params
         const { date } = req.query

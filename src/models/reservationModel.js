@@ -1,25 +1,34 @@
+import { isExpired } from "../utils/payment.js"
+
 let reservations = []
 
 const reservationModel = {
 
-    getReservationById: (reservationId) => reservations.find(reservation => reservation.reservationId === reservationId),
+    getReservationById: (reservationId) => reservations.find(r => r.id === reservationId),
 
     getAll: () => reservations,
 
-    getAllByUserId: (userId) => reservations.filter(reservation => reservation.userId === userId),
+    getAllByUserId: (userId) => reservations.filter(r => r.userId === userId),
 
-    getAllByRoomId: (roomId) => reservations.filter(reservation => reservation.roomId === roomId),
+    getAllByRoomId: (roomId) => reservations.filter(r => r.roomId === roomId),
 
     storeReservation: (reservation) => {
         reservations.push(reservation)
-        
     },
 
-    delete: (reservationId) => {
-        const filterReservations = reservations.filter(reservation => reservation.reservationId !== reservationId)
-        reservations = filterReservations
-    }
+    cleanExpiredReservations: () => {
+        reservations = reservations.filter(reservation => {
+            return !(
+                reservation.status === 'pagamento pendente' &&
+                isExpired(reservation)
+            )
+        })
+    },
 
+    confirmReservation: (reservationId) => {
+        const r = reservations.find(r => reservationId === r.id)
+        r.status = 'confirmado'
+    }
 }
 
 export { reservationModel }

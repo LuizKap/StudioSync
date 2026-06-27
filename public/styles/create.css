@@ -70,7 +70,7 @@ p,
 .room-card p,
 .room-card span,
 .room-card strong {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 .room-img {
@@ -90,6 +90,7 @@ p,
     display: grid;
     gap: 1rem;
     text-align: center;
+    width: 80%;
 }
 
 #label-start,
@@ -147,3 +148,10 @@ p,
     background-color: #9850b9;
     transition: .7s;
 }
+
+#alert-message {
+    color: red;
+    font-size: 1rem;
+
+}
+

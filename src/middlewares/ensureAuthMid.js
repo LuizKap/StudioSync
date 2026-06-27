@@ -16,7 +16,7 @@ export function ensureAuthMiddleware(req, res, next) {
         }
 
         req.user = user
-        next()
+        return next()
     } catch (err) {
         return res.redirect('/auth/login')
     }
