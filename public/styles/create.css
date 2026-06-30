@@ -74,7 +74,8 @@ p,
 }
 
 .room-img {
-    width: 28rem;
+    width: 100%;
+    max-width: 28rem;
     height: 20rem;
     object-fit: cover;
     object-position: center bottom;
@@ -154,4 +155,3 @@ p,
     font-size: 1rem;
 
 }
-

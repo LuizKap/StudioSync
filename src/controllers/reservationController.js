@@ -41,15 +41,20 @@ const reservationController = {
         if (!room) return res.status(404).send('sala não encontrada')
         if (!date || !horaInicio || !horaFim) return res.status(400).send('Todos os campos são obrigatórios')
 
-
         const roomReservations = reservationModel.getAllByRoomId(roomId).filter(reservation => reservation.data === date)
         const dayjsI = dayjs(horaInicio, 'HH:mm')
         const dayjsF = dayjs(horaFim, 'HH:mm')
 
-
         const conflicted = validateTime(dayjsI, dayjsF, roomReservations, horaInicio, horaFim) || validateDate(date, horaInicio)
         if (conflicted) return res.status(400).send('Horários ou datas Inválido(a)s')
 
+
+        const pending = reservationModel.getPendingByUserId(user.id)
+        if (pending.length >= 1) {
+            return res.status(400).send(
+                'Você deve pagar a reserva pendente antes de fazer uma nova.'
+            )
+        }
 
         const total = calculatePrice(horaInicio, horaFim, room.precoHora)
         reservationModel.storeReservation({

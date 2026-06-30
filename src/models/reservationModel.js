@@ -8,6 +8,13 @@ const reservationModel = {
 
     getAll: () => reservations,
 
+    getPendingByUserId: (userId) => {
+        return reservations.filter(r =>
+            r.userId === userId &&
+            r.status === 'pagamento pendente'
+        )
+    },
+
     getAllByUserId: (userId) => reservations.filter(r => r.userId === userId),
 
     getAllByRoomId: (roomId) => reservations.filter(r => r.roomId === roomId),

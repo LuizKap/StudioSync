@@ -1,12 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
-let users = [
-    {
-        nome: 'luiz',
-        email: 'whisk@gmail.com',
-        senha: 'sss'
-    }
-]
+let users = []
 
 const userModel = {
     getById: (id) => users.find(user => user.id === id),
