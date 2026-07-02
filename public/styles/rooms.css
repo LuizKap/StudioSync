@@ -1,221 +1,242 @@
-
-
 body {
     width: 100%;
     min-height: 100vh;
+    background: #0b0b12;
+    color: #fff;
 }
 
 body::before {
     content: '';
-
     position: fixed;
     inset: 0;
-
     background-image: url(/assets/images/globalBackground.png);
     background-size: cover;
     background-position: center;
-
-    filter: brightness(40%);
+    filter: brightness(35%);
     z-index: -1;
 }
 
 h1,
 h2,
 h3 {
-    font-family: "Orbitron", sans-serif
+    font-family: "Orbitron", sans-serif;
 }
 
 p,
 li {
     font-family: "Inter", sans-serif;
-    font-size: 1rem;
 }
 
-h1 {
-    font-size: 3.5rem;
-}
-
-h1>strong {
-    color: #992ee0f1;
-}
-
-.li-cards:nth-child(odd) {
-    border-color: #2b053d;
-}
-
-.li-cards:nth-child(even) {
-    border-color: #a855f7;
-}
 
 #div-titulo {
-    display: grid;
-    justify-content: center;
-    color: white;
     text-align: center;
+    margin: 2rem 0;
 }
 
-#div-titulo>p {
-    font-size: 1.5rem;
+#div-titulo h1 strong {
+    color: #a855f7;
 }
 
 #ul-cards {
-    padding: 1rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(2, minmax(420px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
 }
+
 
 .li-cards {
-    background: #161622eb;
-    border: 1px solid;
-    border-radius: 12px;
+    display: flex;
+    background: #141421;
+    border-radius: 14px;
+    overflow: hidden;
     box-shadow:
-        0 4px 20px #00000080,
-        0 0 12px #862ac426;
-
-    padding: 1rem;
-    gap: 1.5rem;
-
-    display: grid;
-    grid-template-columns: .8fr 1fr;
-    grid-template-areas:
-        'img titulo'
-        'img descricao'
-        'img equipamentos'
-        'footer footer'
-        'reservar reservar';
-    color: #ffffff;
+        0 10px 30px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(168, 85, 247, 0.12);
+    transition: transform .25s ease;
 }
 
+.li-cards:hover {
+    transform: translateY(-5px);
+}
+
+
 .room-img {
-    width: 15rem;
-    height: 19rem;
-    border-radius: 10px;
+    width: 250px;
+    height: 100%;
     object-fit: cover;
-    grid-area: img;
+    flex-shrink: 0;
+    border-radius: 10px
+}
+
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.2rem;
+    gap: 1rem;
+}
+
+.div-header {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.room-nome {
+    font-size: 1.4rem;
 }
 
 .logo-tipo {
     display: flex;
     align-items: center;
+    gap: .5rem;
+    color: #c084fc;
 }
 
-.sub_title {
-    color: #9737d8f1;
-    font-size: 1rem;
-    margin-bottom: 5px;
+.room-tipo {
+    white-space: nowrap;
 }
 
-.room-nome {
-    margin-bottom: 10px;
-}
-
-.room-logo {
-    margin-right: 10px;
-    width: 1.5rem;
-    object-fit: contain;
-}
-
-.ul-equipamentos {
-    padding-left: 15px;
-}
-
-.room-footer {
-    grid-area: footer;
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 5rem;
-
-
-    background: #09090eeb;
-    border-top: 1px solid #a3a2a285;
-    border-radius: 5px;
-}
-
-.div-capacidade {
+.div-descricao {
     display: grid;
-    grid-template-areas:
-        'img capacidade'
-        'img pessoas';
-
     gap: .5rem;
 }
 
-.capacidade-img {
-    grid-area: img;
-
-    border-radius: 10px;
-    width: 3rem;
-    height: 3rem;
-    object-fit: contain;
-    padding: 10px;
-    background: #050505cc;
+.div-descricao p {
+    opacity: 0.85;
+    line-height: 1.4;
 }
 
-.div-precoHora {
+
+.div-equipamentos {
+    font-size: .95rem;
     display: grid;
-    gap: .7rem;
-    color: #a855f7;
+    gap: .5rem;
 }
 
-#card-reservar {
-    background: #0a0a0ceb;
-    border: 1px solid;
-    border-radius: 12px;
-    box-shadow:
-        0 4px 20px #00000080,
-        0 0 12px #862ac426;
+.ul-equipamentos {
+    padding-left: 1rem;
+    opacity: 0.85;
+}
 
-    padding: 1rem;
-    gap: 1rem;
-
+.room-footer {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
     align-items: center;
-    gap: 1.5rem;
+
+
+    font-size: .9rem;
+    background: #0c0c14;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
-#card-reservar>h6 {
-    font-size: 1.4rem;
-    color: #9246da;
-}
 
-#card-reservar>img {
-    width: 5rem;
+.div-capacidade {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
 
-    object-fit: contain;
-    background: #8a16c03a;
-    border-radius: 30px;
-    padding: 15px;
-}
-
-#card-reservar>p {
-    font-size: 1.3rem;
-    color: white;
-    width: 50%;
     text-align: center;
 }
 
+.capacidade-img {
+    width: 28px;
+    height: 28px;
+}
+
+
+.div-precoHora {
+    text-align: right;
+    color: #a855f7;
+    text-align: center;
+}
+
+
 .div-btn-reservar {
-    grid-area: reservar;
-    justify-self: center;
+    display: flex;
+    justify-content: center;
 }
 
 .btn-reservar {
-    background: #692ca1;
-    text-decoration: none;
-    color: #f0edf3;
-    padding: 12px 16px;
+    background: linear-gradient(135deg, #7c3aed, #a855f7);
+    padding: 10px 18px;
     border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .2s;
 }
 
 .btn-reservar:hover {
-    box-shadow:
-        0 4px 20px #00000080,
-        0 0 12px #862ac426;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+}
 
-    background-color: #2b053d;
-    transition: .7s;
+
+#card-reservar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5rem;
+
+    background: #141421;
+    border-radius: 14px;
+    padding: 2rem;
+    gap: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#card-reservar img {
+    width: 90px;
+    background: #4f0b6469;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@media (min-width: 320px) and (max-width: 899px) {
+    #ul-cards {
+        grid-template-columns: repeat(1, minmax(310px, 1fr));
+        justify-content: center;
+    }
+
+    .li-cards {
+        padding-top: 1rem;
+        display: grid;
+        justify-items: center;
+    }
+
+    .card-content {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .div-descricao {
+        text-align: center;
+    }
+
+}
+
+
+@media (min-width: 900px) and (max-width: 1200px) {
+    #ul-cards {
+        grid-template-columns: repeat(auto-fit, minmax(600px, 800px));
+        justify-content: center;
+    }
+
+}
+
+@media (min-width: 1650px) {
+    #ul-cards {
+        justify-content: center;
+        grid-template-columns: repeat(2, minmax(420px, 800px));
+    }
+
 }

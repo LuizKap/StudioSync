@@ -48,14 +48,14 @@ const reservationController = {
         const conflicted = validateTime(dayjsI, dayjsF, roomReservations, horaInicio, horaFim) || validateDate(date, horaInicio)
         if (conflicted) return res.status(400).send('Horários ou datas Inválido(a)s')
 
-
+        //Regra de negócio: Só pode fazer uma nova reserva depois de pagar a que está pendente
         const pending = reservationModel.getPendingByUserId(user.id)
         if (pending.length >= 1) {
             return res.status(400).send(
                 'Você deve pagar a reserva pendente antes de fazer uma nova.'
             )
         }
-
+        
         const total = calculatePrice(horaInicio, horaFim, room.precoHora)
         reservationModel.storeReservation({
             id: uuidv4(),

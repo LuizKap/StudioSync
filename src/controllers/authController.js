@@ -6,6 +6,7 @@ import { isValidEmail, isValidPassword } from "../utils/emailPassValidators.js"
 const authController = {
     register: (req, res) => {
         const { nome, email, senha } = req.body
+
         if (!nome || !email || !senha) return res.status(400).send('Dados em falta')
 
         if (!isValidEmail(email)) {
@@ -22,10 +23,7 @@ const authController = {
         const user = userModel.create(nome, email, cryptSenha)
 
         const token = createAuthToken(user.id)
-        res.cookie('token', token, {
-            httpOnly: true,
-            maxAge: 30 * 24 * 60 * 60 * 1000
-        })
+        res.cookie('token', token, { httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000 })
         return res.redirect('/')
     },
 

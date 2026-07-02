@@ -7,7 +7,7 @@ let rooms = [
         tipo: 'Orquestra',
         img: '/assets/images/harmonia.jpg',
         logo: '/assets/images/notaMusical.png' ,
-        descricao: "Sala voltada para orquestras, ensembles e apresentações acústicas.",
+        descricao: "Sala voltada para orquestras, ensembles e apresentações.",
         equipamentos: [
             "Piano de cauda",
             "Estantes para partituras",
@@ -24,13 +24,12 @@ let rooms = [
         tipo: 'Banda / Rock',
         img: '/assets/images/overdrive.jpg',
         logo: '/assets/images/guitarra.png',
-        descricao: "Sala de ensaio para bandas de rock e metal com isolamento acústico.",
+        descricao: "Sala de ensaio para bandas de rock e metal.",
         equipamentos: [
             "Bateria acústica",
             "Amplificador Marshall",
             "Amplificador de baixo",
-            "Mesa de som",
-            "PA de retorno"
+            "Mesa de som"
         ],
         capacidade: 6,
         precoHora: 80
@@ -47,8 +46,7 @@ let rooms = [
             "Microfone condensador",
             "Interface de áudio",
             "Monitores de referência",
-            "Computador para produção",
-            "Controladora MIDI"
+            "Computador para produção"
         ],
         capacidade: 3,
         precoHora: 100

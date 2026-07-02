@@ -3,9 +3,11 @@
 body {
   display: flex;
   background: #0b0714;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body > img {
@@ -20,27 +22,29 @@ section {
   justify-content: center;
   align-items: center;
   box-shadow: black 0px 0px 100px 55px;
+  padding: 1rem;
 }
 
 form {
   background-color: #161622d8;
   width: 80%;
+  max-width: 420px;
   min-height: 70%;
 
   border-radius: 10px;
   box-shadow: #f5f5f593 0px 0px 3px;
 
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
 
-  padding: 2rem 0;
+  padding: 2rem 1.5rem;
 }
 
 .input {
   border-radius: 10px;
   border: solid 1px #ffffff5d;
   background-color: #161622d8;
-  width: 80%;
+  width: 100%;
   padding: 10px 8px;
   color: #f7f9fa;
 }
@@ -58,12 +62,14 @@ form {
   display: grid;
   justify-items: center;
   color: #f7f9faee;
+  gap: 0.5rem;
 }
 
 .img-h1 {
   display: flex;
   gap: .5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  align-items: center;
 }
 
 .img-h1 img {
@@ -79,6 +85,7 @@ h1,
 h2 {
   font-size: 2rem;
   font-family: "Orbitron", sans-serif;
+  text-align: center;
 }
 
 h1 strong {
@@ -87,18 +94,19 @@ h1 strong {
 
 .div_titulo p {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .div_dados {
   display: grid;
-  justify-items: center;
+  
   gap: .5rem;
   color: #f7f9fad2;
 }
 
 .div_dados label {
-  width: 80%;
+  width: 100%;
+  max-width: 320px;
   font-size: .9rem;
 }
 
@@ -108,17 +116,18 @@ h1 strong {
   border: none;
   cursor: pointer;
 
-  font-size: .9rem;
-  width: 80%;
+  font-size: .95rem;
+  width: 100%;
+  max-width: 320px;
   padding: 12px 0;
 
   color: #f7f9fa;
   font-weight: 600;
+  transition: .3s;
 }
 
 #entrar:hover {
   background-color: #7d3fc0;
-  transition: .3s;
 }
 
 .div_login {
@@ -129,6 +138,7 @@ h1 strong {
 
 .div_login p {
   color: #f7f9fab2;
+  text-align: center;
 }
 
 .fazer_login {
@@ -138,4 +148,24 @@ h1 strong {
 
 .fazer_login:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  body {
+    flex-direction: column;
+  }
+
+  body > img {
+    width: 100%;
+    height: 35vh;
+  }
+
+  section {
+    width: 100%;
+    height: 65vh;
+  }
+
+  form {
+    width: 90%;
+  }
 }

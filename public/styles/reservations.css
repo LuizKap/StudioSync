@@ -34,10 +34,8 @@ main {
 
 .ul-cards {
     display: grid;
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(300px, 1fr)
-    );
+    grid-template-columns: repeat(auto-fit,
+            minmax(300px, 1fr));
     gap: 25px;
 }
 
@@ -70,13 +68,16 @@ main {
     border-radius: 50px;
     font-size: 0.85rem;
 }
-.pendente{
+
+.pendente {
     background-color: #284e94;
 }
-.confirmado{
+
+.confirmado {
     background-color: #208831;
 }
-.cancelado{
+
+.cancelado {
     background-color: #aa2715;
 }
 
