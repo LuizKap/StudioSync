@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/styles/reset.css">
     <link rel="stylesheet" href="/styles/partials/header.css">
     <link rel="stylesheet" href="/styles/reservations.css">
-
+    <link rel="icon" href="/assets/images/notaMusical.png" type="image/png">
     <title>Minhas Reservas - StudioSync</title>
 </head>
 
@@ -52,7 +52,7 @@
                                 Total: R$ <%= reservation.total %>
                             </p>
                             <% if (reservation.status==='pagamento pendente' ) { %>
-                                
+
                                 <form action="/payment/checkout/<%= reservation.id%>" method="POST">
                                     <button type="submit" class="pay-btn">
                                         Pagar reserva
