@@ -1,8 +1,9 @@
 import Stripe from 'stripe'
+import dotenv from 'dotenv'
 import dayjs from 'dayjs'
 import { reservationModel } from '../models/reservationModel.js'
 import { roomsModel } from '../models/roomModel.js'
-
+dotenv.config()
 const BASE_URL = process.env.BASE_URL
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 
