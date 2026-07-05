@@ -1,9 +1,9 @@
 import Stripe from 'stripe'
-import dotenv from 'dotenv'
 import dayjs from 'dayjs'
 import { reservationModel } from '../models/reservationModel.js'
 import { roomsModel } from '../models/roomModel.js'
-dotenv.config()
+
+const BASE_URL = process.env.BASE_URL
 const stripe = new Stripe(process.env.STRIPE_SECRET)
 
 export const paymentController = {
@@ -22,21 +22,27 @@ export const paymentController = {
         if (!room) return res.status(404).send('Sala não encontrada')
 
         // Cria a sessão de pagamento na Stripe
-        const session = await stripe.checkout.sessions.create({
-            success_url: 'http://localhost:3000/payment/success',
-            cancel_url: 'http://localhost:3000/payment/cancel',
-            line_items: [{
-                price_data: { currency: 'brl', product_data: { name: room.nome, description: room.descricao }, unit_amount: reservation.total * 100 },
-                quantity: 1
-            }],
-            mode: 'payment',
-            metadata: {
-                reservationId: reservation.id,
-                userId: user.id
-            }, payment_method_types: ['card', 'boleto']
-        })
+        try {
+            const session = await stripe.checkout.sessions.create({
+                success_url: `${BASE_URL}/payment/success`,
+                cancel_url: `${BASE_URL}/payment/cancel`,
+                line_items: [{
+                    price_data: { currency: 'brl', product_data: { name: room.nome, description: room.descricao }, unit_amount: reservation.total * 100 },
+                    quantity: 1
+                }],
+                mode: 'payment',
+                metadata: {
+                    reservationId: reservation.id,
+                    userId: user.id
+                }, payment_method_types: ['card', 'boleto']
+            })
 
-        res.redirect(303, session.url)
+            return res.redirect(303, session.url)
+        } catch (error) {
+            console.error('Erro ao criar sessão do Stripe:' , error)
+            return res.status(500).send('Erro ao iniciar pagamento')
+        }
+
     },
 
     success: (req, res) => {

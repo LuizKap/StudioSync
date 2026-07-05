@@ -1,6 +1,23 @@
 import express from 'express'
 import dotenv from 'dotenv'
 dotenv.config()
+
+if (!process.env.STRIPE_SECRET) {
+    throw new Error('STRIPE_SECRET não definida.')
+}
+
+if (!process.env.JWT_SECRET) {
+    throw new Error('JWT_SECRET não definida.')
+}
+
+if (!process.env.WEBHOOK_SECRET) {
+    throw new Error('WEBHOOK_SECRET não definida.')
+}
+
+if (!process.env.BASE_URL) {
+    throw new Error('BASE_URL não definida.')
+}
+
 import cookieParser from 'cookie-parser'
 import { homeRouter } from './routes/homeRoute.js'
 import { roomRoute } from './routes/roomRoute.js'
@@ -12,6 +29,7 @@ import { paymentController } from './controllers/paymentController.js'
 
 
 const app = express()
+
 
 app.set('view engine', 'ejs')
 app.set('views', './views')
